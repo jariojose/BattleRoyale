@@ -1,0 +1,5 @@
+name: ${project.name}
+description: ${project.description}
+version: ${project.version}
+main: com.gmail.luxdevpl.battleroyal.Main
+commands:
