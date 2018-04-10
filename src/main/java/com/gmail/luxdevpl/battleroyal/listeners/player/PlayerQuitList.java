@@ -19,8 +19,7 @@ public class PlayerQuitList implements Listener {
             BattleArena currentArena = battlePlayer.getCurrentArena();
 
             if(currentArena.getGameState() == GameState.INGAME){
-                //todo kara za ucieczke ty kurwo UBOJNIA!!!!!!
-                currentArena.broadcastMessage("&3" + e.getPlayer().getName() + " &7spierdolil wam z areny, spokojnie my go zajebiemy.");
+                currentArena.broadcastMessage("&3" + e.getPlayer().getName() + " &7uciekl wam z areny");
 
                 currentArena.removePlayer(battlePlayer);
             } else {
