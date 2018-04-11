@@ -78,7 +78,7 @@ public class Main extends JavaPlugin {
 
     private void initArenas(){
         BattleArena testArena = new BattleArena(Bukkit.getWorlds().get(0), //Arena world
-                1, 1, 400, //Arena ID - Players limit - ArenaBorderStartSize
+                1, 1, 400, 400,//Arena ID - Players limit - ArenaBorderStartSize - Arena Size
                 new Location(Bukkit.getWorlds().get(0), 0, 90, 0), //Arena dragon spawn point.
                 new Location(Bukkit.getWorlds().get(0), 40, 90, 40)); //Arena middlePoint
 

@@ -31,7 +31,7 @@ public class BattleArena {
 
     private World world;
 
-    private int id, playersLimit, arenaBorderStartSize;
+    private int id, playersLimit, arenaBorderStartSize, arenaSize;
 
     private final Location signLocation, arenaMiddlePoint;
 
@@ -39,12 +39,15 @@ public class BattleArena {
 
     private final BattleZone zone;
 
-    public BattleArena(World world, int id, int playersLimit, int arenaBorderStartSize, Location signLocation, Location arenaMiddlePoint){
+    private final BattleAirDrop airDrop;
+
+    public BattleArena(World world, int id, int playersLimit, int arenaBorderStartSize, int arenaSize, Location signLocation, Location arenaMiddlePoint){
         this.world = world;
 
         this.id = id;
         this.playersLimit = playersLimit;
         this.arenaBorderStartSize = arenaBorderStartSize;
+        this.arenaSize = arenaSize;
 
         this.signLocation = signLocation;
         this.arenaMiddlePoint = arenaMiddlePoint;
@@ -57,6 +60,8 @@ public class BattleArena {
         this.dragon = new CustomEnderDragonBus(new Location(this.signLocation.getWorld(), 5, 90, 0));
 
         this.zone = new BattleZone(this, this.arenaMiddlePoint);
+
+        this.airDrop = new BattleAirDrop(this);
     }
 
     public int getId() {
@@ -82,7 +87,7 @@ public class BattleArena {
             //todo liczniki
             this.startGame();
 
-            this.broadcastMessage("&7Gra rozpoczela sie! ! ! ! !");
+            this.broadcastMessage("&7Gra rozpoczyna sie!");
         }
     }
 
@@ -94,13 +99,12 @@ public class BattleArena {
         this.gameState = GameState.INGAME;
 
         this.zone.setupBorder();
+        this.airDrop.startAirDropTask();
 
         dragon.startTravel(new Location(signLocation.getWorld(), 145, 90, -125));
 
         for(BattlePlayer player : this.players){
             Player loopPlayer = player.getPlayer();
-
-            loopPlayer.getLocation().getWorld().playEffect(player.getPlayer().getLocation(), Effect.EXPLOSION_HUGE, 1);
 
             dragon.addPassanger(loopPlayer);
             dragon.getEntity().setPassenger(loopPlayer);
@@ -110,9 +114,13 @@ public class BattleArena {
     }
 
     private void endGame(){
+        this.airDrop.stopAirDropTask();
+        this.zone.stopShrinking();
+
         this.gameState = GameState.WAITING;
 
         //todo teleport all "spectators" and players to main lobby.
+        //todo reset world
 
         this.updateSign();
     }
@@ -167,6 +175,10 @@ public class BattleArena {
 
     public World getArenaWorld(){
         return this.world;
+    }
+
+    public int getArenaSize() {
+        return arenaSize;
     }
 
     public void create(){

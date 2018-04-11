@@ -1,19 +1,11 @@
 package com.gmail.luxdevpl.battleroyal.listeners.player;
 
-import java.sql.Struct;
-import java.util.Set;
-
 import com.gmail.luxdevpl.battleroyal.basic.BattleStructure;
-import com.gmail.luxdevpl.battleroyal.managers.StructureManager;
 import com.gmail.luxdevpl.battleroyal.utils.Packets;
-import net.minecraft.server.v1_9_R2.NBTTagCompound;
-import net.minecraft.server.v1_9_R2.TileEntity;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
-import org.bukkit.block.Structure;
-import org.bukkit.craftbukkit.v1_9_R2.CraftWorld;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -60,19 +52,16 @@ public class PlayerInteractList implements Listener {
                     }
                 }
             }
+        }
+
+        if(e.getAction() == Action.LEFT_CLICK_BLOCK){
             if(e.getClickedBlock().getType() == Material.WOOD){
-                TileEntity tileEntity = ((CraftWorld) e.getClickedBlock().getWorld()).getTileEntityAt(e.getClickedBlock().getX(), e.getClickedBlock().getY(), e.getClickedBlock().getZ());
-                NBTTagCompound tagCompound = tileEntity.E_();
-                if(tagCompound != null){
-                    int structureID = tagCompound.getInt("structure");
+                BattleStructure battleStructure = Main.getInstance().getStructureManager().getStructureByLocation(e.getClickedBlock().getLocation());
 
-                    Bukkit.broadcastMessage("STR ID: " + structureID);
+                if(battleStructure != null){
+                    battleStructure.subtractLive();
 
-                    BattleStructure structure = Main.getInstance().getStructureManager().getStrucureById(structureID);
-
-                    structure.setHealthPercentage(structure.getHealthPercentage() -1);
-
-                    Packets.sendActionBar(e.getPlayer(), "HP: " + structure.getHealthPercentage());
+                    Packets.sendActionBar(e.getPlayer(), StringUtils.color("&4HP Struktury: " + battleStructure.getHealthPercentage()));
                 }
             }
         }

@@ -14,8 +14,6 @@ public class BattleZone implements Runnable {
 
     private double size;
 
-    private boolean tourCooldown;
-
     private WorldBorder worldBorder;
 
     private BukkitTask task;
@@ -53,14 +51,16 @@ public class BattleZone implements Runnable {
         this.task = Bukkit.getScheduler().runTaskTimerAsynchronously(Main.getInstance(), this, 20, 20);
     }
 
+    public void stopShrinking(){
+        this.task.cancel();
+    }
+
     private void updateBorder(){
         this.timesRan++;
 
         //Moving the border closer to middlePoint
-        if(this.zoneTour > 0 && !this.tourCooldown) {
+        if(this.zoneTour > 0) {
             this.worldBorder.setSize(this.size / this.zoneTour, 25);
-
-
         }
 
         //This game should be over after 4th zoneTour.

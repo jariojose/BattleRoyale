@@ -21,12 +21,10 @@ public class WallStructureImpl extends AbstractStructure {
 
     @Override
     protected void performBuildAction(Player player, List<Block> blockList) {
-		for(int i = 0; i < blockList.size(); i++){
-        	this.placeWithCooldown(player, blockList.get(i).getLocation(), Material.WOOD, i);
+        for(int i = 0; i < blockList.size(); i++){
+            this.placeWithCooldown(player, blockList.get(i).getLocation(), Material.WOOD, i);
         }
-
         Main.getInstance().getStructureManager().addStructure(Building.WALL, blockList);
-
 	}
 
     @Override
@@ -91,4 +89,5 @@ public class WallStructureImpl extends AbstractStructure {
         }
         return blocks;
     }
+
 }

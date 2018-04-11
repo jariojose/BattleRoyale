@@ -3,6 +3,8 @@ package com.gmail.luxdevpl.battleroyal.system.structure.structures;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gmail.luxdevpl.battleroyal.Main;
+import com.gmail.luxdevpl.battleroyal.basic.types.Building;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -24,6 +26,7 @@ public class StairsStructureImpl extends AbstractStructure {
         for(int i = 0; i < blockList.size(); i++){
             placeWithCooldown(player, blockList.get(i).getLocation(), direction, i);
         }
+        Main.getInstance().getStructureManager().addStructure(Building.STAIRS, blockList);
 	}
 
     @Override

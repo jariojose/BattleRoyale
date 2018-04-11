@@ -1,6 +1,8 @@
 package com.gmail.luxdevpl.battleroyal.system.structure.structures;
 
+import com.gmail.luxdevpl.battleroyal.Main;
 import com.gmail.luxdevpl.battleroyal.basic.BattlePlayer;
+import com.gmail.luxdevpl.battleroyal.basic.types.Building;
 import com.gmail.luxdevpl.battleroyal.managers.BattlePlayerManager;
 import com.gmail.luxdevpl.battleroyal.system.structure.AbstractStructure;
 import com.gmail.luxdevpl.battleroyal.utils.BuildingUtils;
@@ -14,6 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConeStructureImpl extends AbstractStructure {
+
+    @Override
+    protected void performBuildAction(Player player, List<Block> blockList) {
+        for (int i = 0; i < blockList.size(); i++) {
+            placeWithCooldown(player, blockList.get(i).getLocation(), Material.GLASS, i);
+        }
+        Main.getInstance().getStructureManager().addStructure(Building.CONE, blockList);
+    }
 
     @Override
     public void visualizeStructure(Player player, Location where) {
@@ -34,17 +44,10 @@ public class ConeStructureImpl extends AbstractStructure {
         }
     }
 
-    @Override
-    protected void performBuildAction(Player player, List<Block> blockList) {
-        for (int i = 0; i < blockList.size(); i++) {
-            placeWithCooldown(player, blockList.get(i).getLocation(), Material.GLASS, i);
-        }
-    }
-
     private List<Block> getStructure(Location location) {
         List<Block> blocks = new ArrayList<>();
 
-        int size = 5;
+        int size = 4;
 
         Location copy = location.clone();
 
