@@ -1,8 +1,14 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.listeners.player;
 
-import com.gmail.luxdevpl.battleroyal.basic.BattleStructure;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattleStructure;
+import com.gmail.luxdevpl.battleroyal.basic.types.WeaponTypes;
+import com.gmail.luxdevpl.battleroyal.system.weapon.Weapon;
+import com.gmail.luxdevpl.battleroyal.system.weapon.weapons.RocketWeaponImpl;
 import com.gmail.luxdevpl.battleroyal.utils.Packets;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
@@ -13,8 +19,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.gmail.luxdevpl.battleroyal.Main;
-import com.gmail.luxdevpl.battleroyal.basic.BattleArena;
-import com.gmail.luxdevpl.battleroyal.basic.BattlePlayer;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattleArena;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattlePlayer;
 import com.gmail.luxdevpl.battleroyal.basic.types.GameState;
 import com.gmail.luxdevpl.battleroyal.managers.ArenaManager;
 import com.gmail.luxdevpl.battleroyal.managers.BattlePlayerManager;
@@ -66,6 +72,14 @@ public class PlayerInteractList implements Listener {
             }
         }
 
+        if(e.getPlayer().getInventory().getItemInMainHand().getType() == Material.WOOD_HOE) {
+            if (battlePlayer.getCurrentArena() != null) {
+                Weapon rocket = new RocketWeaponImpl(battlePlayer);
+
+                rocket.shoot(WeaponTypes.ROCKET.getBulletSpeed());
+            }
+        }
+
         if(e.getPlayer().getItemInHand().getType() == Material.BOOK) {
             e.setCancelled(true);
 
@@ -78,7 +92,6 @@ public class PlayerInteractList implements Listener {
                     }
                 }
             }
-
         }
     }
 

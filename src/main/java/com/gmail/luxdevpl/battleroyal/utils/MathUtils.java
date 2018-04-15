@@ -1,8 +1,17 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.utils;
 
 import com.gmail.luxdevpl.battleroyal.basic.types.Direction;
+import net.minecraft.server.v1_9_R2.EnumParticle;
+import net.minecraft.server.v1_9_R2.PacketPlayOutWorldParticles;
+import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
 
 public class MathUtils {
 
@@ -40,4 +49,9 @@ public class MathUtils {
         return BlockFace.DOWN;
     }
 
+    public static void drawLineBeetweenLocations(Player player, Location startLocation, Location endLocation){
+        Vector difference = startLocation.toVector().subtract(endLocation.toVector());
+
+        //todo
+    }
 }

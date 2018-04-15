@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.utils;
 
 import net.minecraft.server.v1_9_R2.IChatBaseComponent;

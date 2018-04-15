@@ -1,6 +1,11 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.basic;
 
 import com.gmail.luxdevpl.battleroyal.Main;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattlePlayer;
 import com.gmail.luxdevpl.battleroyal.basic.types.Building;
 import com.gmail.luxdevpl.battleroyal.managers.BattlePlayerManager;
 import com.gmail.luxdevpl.battleroyal.utils.StringUtils;
@@ -53,7 +58,6 @@ public class BuildingMenu {
             battlePlayer.setStructure(Main.getInstance().getBuildingManager().getStructure(Building.CONE));
             e.getWhoClicked().sendMessage(StringUtils.color("&3Ustawiles strukture stozka."));
         }
-
     }
 
 }

@@ -1,8 +1,11 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.managers;
 
-import com.gmail.luxdevpl.battleroyal.basic.BattleStructure;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattleStructure;
 import com.gmail.luxdevpl.battleroyal.basic.types.Building;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 

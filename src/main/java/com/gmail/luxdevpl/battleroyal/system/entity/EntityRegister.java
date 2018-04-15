@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.system.entity;
 
 import net.minecraft.server.v1_9_R2.EntityTypes;

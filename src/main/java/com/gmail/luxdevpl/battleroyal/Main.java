@@ -1,6 +1,10 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal;
 
-import com.gmail.luxdevpl.battleroyal.basic.BattleArena;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattleArena;
 import com.gmail.luxdevpl.battleroyal.basic.BuildingMenu;
 import com.gmail.luxdevpl.battleroyal.listeners.inventory.InventoryClickList;
 import com.gmail.luxdevpl.battleroyal.listeners.player.*;

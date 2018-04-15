@@ -1,11 +1,15 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.listeners.player;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import com.gmail.luxdevpl.battleroyal.basic.BattleArena;
-import com.gmail.luxdevpl.battleroyal.basic.BattlePlayer;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattleArena;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattlePlayer;
 import com.gmail.luxdevpl.battleroyal.basic.types.GameState;
 import com.gmail.luxdevpl.battleroyal.managers.BattlePlayerManager;
 

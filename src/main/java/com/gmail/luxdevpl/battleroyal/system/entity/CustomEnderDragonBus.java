@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.system.entity;
 
 import com.gmail.luxdevpl.battleroyal.system.ICustomEnderdragonBus;
@@ -160,8 +164,7 @@ public class CustomEnderDragonBus extends EntityEnderDragon implements ICustomEn
 
     @Override
     public Entity getEntity() {
-        if (bukkitEntity != null)
-            return bukkitEntity;
+        if (bukkitEntity != null) return bukkitEntity;
         return null;
     }
 

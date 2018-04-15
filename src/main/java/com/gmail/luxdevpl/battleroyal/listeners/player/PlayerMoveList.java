@@ -1,7 +1,10 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.listeners.player;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,8 +13,8 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
 import com.gmail.luxdevpl.battleroyal.Main;
-import com.gmail.luxdevpl.battleroyal.basic.BattleArena;
-import com.gmail.luxdevpl.battleroyal.basic.BattlePlayer;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattleArena;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattlePlayer;
 import com.gmail.luxdevpl.battleroyal.managers.BattlePlayerManager;
 
 public class PlayerMoveList implements Listener {

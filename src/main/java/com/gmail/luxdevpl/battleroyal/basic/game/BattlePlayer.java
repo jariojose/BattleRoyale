@@ -1,10 +1,13 @@
-package com.gmail.luxdevpl.battleroyal.basic;
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
 
+package com.gmail.luxdevpl.battleroyal.basic.game;
+
+import com.gmail.luxdevpl.battleroyal.basic.types.WeaponTypes;
 import com.gmail.luxdevpl.battleroyal.system.structure.AbstractStructure;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
@@ -18,10 +21,16 @@ public class BattlePlayer {
 
     private AbstractStructure structure;
 
-    private List<Block> blockList = new ArrayList<>();
+    private List<Block> blockList;
+
+    private Map<WeaponTypes, Long> weaponLongMap;
 
     public BattlePlayer(UUID uuid){
         this.uuid = uuid;
+
+        this.blockList = new ArrayList<>();
+
+        this.weaponLongMap = new HashMap<>();
     }
 
     public UUID getUniqueId() {
@@ -50,6 +59,10 @@ public class BattlePlayer {
 
     public List<Block> getBlockList() {
         return blockList;
+    }
+
+    public Map<WeaponTypes, Long> getWeaponLongMap() {
+        return weaponLongMap;
     }
 
 }

@@ -1,4 +1,8 @@
-package com.gmail.luxdevpl.battleroyal.basic;
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
+package com.gmail.luxdevpl.battleroyal.basic.game;
 
 import com.gmail.luxdevpl.battleroyal.Main;
 import com.gmail.luxdevpl.battleroyal.basic.types.Building;

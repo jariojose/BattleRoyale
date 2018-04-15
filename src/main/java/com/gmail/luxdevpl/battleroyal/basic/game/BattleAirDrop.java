@@ -1,4 +1,8 @@
-package com.gmail.luxdevpl.battleroyal.basic;
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
+package com.gmail.luxdevpl.battleroyal.basic.game;
 
 import com.gmail.luxdevpl.battleroyal.Main;
 import com.gmail.luxdevpl.battleroyal.utils.StringUtils;
@@ -7,8 +11,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.scheduler.BukkitTask;
-
-import java.util.concurrent.TimeUnit;
 
 public class BattleAirDrop implements Runnable {
 
@@ -28,7 +30,6 @@ public class BattleAirDrop implements Runnable {
         task.cancel();
     }
 
-    //Tests :P
     @Override
     public void run() {
         Location randomLocation = WorldUtils.getLocationForDrop(this.arena);

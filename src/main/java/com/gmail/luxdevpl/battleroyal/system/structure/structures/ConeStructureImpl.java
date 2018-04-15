@@ -1,7 +1,11 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.system.structure.structures;
 
 import com.gmail.luxdevpl.battleroyal.Main;
-import com.gmail.luxdevpl.battleroyal.basic.BattlePlayer;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattlePlayer;
 import com.gmail.luxdevpl.battleroyal.basic.types.Building;
 import com.gmail.luxdevpl.battleroyal.managers.BattlePlayerManager;
 import com.gmail.luxdevpl.battleroyal.system.structure.AbstractStructure;
@@ -40,7 +44,6 @@ public class ConeStructureImpl extends AbstractStructure {
             battlePlayer.getBlockList().add(block);
 
             player.sendBlockChange(block.getLocation(), Material.STAINED_GLASS, byteId);
-
         }
     }
 
@@ -52,8 +55,8 @@ public class ConeStructureImpl extends AbstractStructure {
         Location copy = location.clone();
 
         for(int y = 0; y < size / 2D; y++) {
-            for(int x = 0; x < size - y*2; x++) {
-                for(int z = 0; z < size - y*2; z++) {
+            for(int x = 0; x < size - y * 2; x++) {
+                for(int z = 0; z < size - y * 2; z++) {
                     blocks.add(copy.getBlock());
                     copy.add(0, 0, 1);
                 }

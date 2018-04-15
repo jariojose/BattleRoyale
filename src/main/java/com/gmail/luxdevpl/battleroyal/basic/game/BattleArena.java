@@ -1,20 +1,18 @@
-package com.gmail.luxdevpl.battleroyal.basic;
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
+package com.gmail.luxdevpl.battleroyal.basic.game;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
-import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import com.gmail.luxdevpl.battleroyal.basic.types.GameState;
 import com.gmail.luxdevpl.battleroyal.managers.ArenaManager;
@@ -41,6 +39,8 @@ public class BattleArena {
 
     private final BattleAirDrop airDrop;
 
+    private final BattleShootingSystem battleShootingSystem;
+
     public BattleArena(World world, int id, int playersLimit, int arenaBorderStartSize, int arenaSize, Location signLocation, Location arenaMiddlePoint){
         this.world = world;
 
@@ -62,6 +62,8 @@ public class BattleArena {
         this.zone = new BattleZone(this, this.arenaMiddlePoint);
 
         this.airDrop = new BattleAirDrop(this);
+
+        this.battleShootingSystem = new BattleShootingSystem(this);
     }
 
     public int getId() {
@@ -100,6 +102,7 @@ public class BattleArena {
 
         this.zone.setupBorder();
         this.airDrop.startAirDropTask();
+        this.battleShootingSystem.start();
 
         dragon.startTravel(new Location(signLocation.getWorld(), 145, 90, -125));
 
@@ -116,6 +119,7 @@ public class BattleArena {
     private void endGame(){
         this.airDrop.stopAirDropTask();
         this.zone.stopShrinking();
+        this.battleShootingSystem.stop();
 
         this.gameState = GameState.WAITING;
 
@@ -179,6 +183,14 @@ public class BattleArena {
 
     public int getArenaSize() {
         return arenaSize;
+    }
+
+    public Location getArenaMiddlePoint() {
+        return arenaMiddlePoint;
+    }
+
+    public BattleShootingSystem getShootingSystem() {
+        return battleShootingSystem;
     }
 
     public void create(){

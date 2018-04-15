@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018.  created by xdev-pl.
+ */
+
 package com.gmail.luxdevpl.battleroyal.system.structure;
 
 import java.util.Collections;
@@ -11,7 +15,7 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 
 import com.gmail.luxdevpl.battleroyal.Main;
-import com.gmail.luxdevpl.battleroyal.basic.BattlePlayer;
+import com.gmail.luxdevpl.battleroyal.basic.game.BattlePlayer;
 import com.gmail.luxdevpl.battleroyal.managers.BattlePlayerManager;
 import com.gmail.luxdevpl.battleroyal.utils.BuildingUtils;
 import com.gmail.luxdevpl.battleroyal.utils.FacingDataUtils;
